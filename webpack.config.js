@@ -2,10 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './index.js',
     devtool: 'inline-source-map',
     output: {
         filename: 'main.js',
@@ -28,6 +28,12 @@ module.exports = {
                         attrs: [':data-src']
                     }
                 }
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/,
+                loader:
+                    require.resolve('file-loader') +
+                    '?name=./[path][name].[ext]'
             }
         ]
     },
@@ -36,11 +42,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'AngularJS + WebPack',
             hash: true,
-            template: './index.html'
+            template: './src/index.html'
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.ProvidePlugin({
             app: ['./app.module', 'default']
-        })
+        }),
     ]
 };
