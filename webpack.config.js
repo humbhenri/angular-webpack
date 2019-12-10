@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
+const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -48,5 +49,8 @@ module.exports = {
         new webpack.ProvidePlugin({
             app: ['./app.module', 'default']
         }),
+        new ngAnnotatePlugin({
+            add: true
+        })
     ]
 };

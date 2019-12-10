@@ -4,3 +4,4 @@ import './app.module';
 import './main.component';
 import './todo';
 import './todoList.component';
+import './todo.service';
