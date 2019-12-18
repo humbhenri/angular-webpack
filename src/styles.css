@@ -46,3 +46,10 @@ input.ng-valid.ng-touched {
         opacity: 0;
     }
 }
+
+@media all and (max-width: 480px) {
+    .custom-btn-w {
+        display: block;
+        width: 100%;
+    }
+}
