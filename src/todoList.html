@@ -1,3 +1,14 @@
 <ul class="list-group">
-    <li ng-repeat="todo in $ctrl.list track by $index" class="list-group-item"> {{ todo }}</li>
+    <li ng-repeat="todo in $ctrl.list track by $index" class="list-group-item">
+        <div class="custom-control custom-checkbox">
+            <input
+                type="checkbox"
+                class="custom-control-input"
+                id="customCheck{{$index}}"
+            />
+            <label class="custom-control-label" for="customCheck{{$index}}"
+                >{{ todo }}</label
+            >
+        </div>
+    </li>
 </ul>

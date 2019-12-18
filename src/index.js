@@ -1,4 +1,4 @@
-import angular from 'angular';
+import 'angular';
 import './styles.css';
 import './app.module';
 import './main.component';
@@ -7,3 +7,4 @@ import './todoList.component';
 import './todo.service';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'angular-animate';
