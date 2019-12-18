@@ -1,14 +1,12 @@
 body {
-    background-image: url('./img/background.jpg') ;
+    background-image: url('./img/background.jpg');
     background-size: 100vw 100vh;
 }
 
-main {
-    margin: auto;
-    width: 80%;
-    text-align: center;
+input.ng-invalid.ng-touched {
+    border-color: #fa787e;
 }
 
-.todo-list {
-    overflow: scroll;
+input.ng-valid.ng-touched {
+    border-color: #78fa89;
 }

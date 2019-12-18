@@ -1,3 +1,24 @@
-<input type="text" name="input" id="input" ng-model="$ctrl.input" autofocus />
-<button name="submit" ng-click="$ctrl.submit()">Submit</button>
-
+<form novalidate name="form">
+    <div class="form-group">
+        <label for="input">New Todo</label>
+        <input
+            type="text"
+            name="input"
+            id="input"
+            ng-model="$ctrl.input"
+            autofocus
+            class="form-control"
+            required
+        />
+        <ng-container ng-show="form.$submitted || form.input.$touched">
+            <small ng-show="form.input.$error.required" class="text-danger">Required</small>
+        </ng-container>
+    </div>
+    <button
+        type="button"
+        class="btn btn-primary"
+        ng-click="form.$valid && $ctrl.submit(form)"
+    >
+        Submit
+    </button>
+</form>
