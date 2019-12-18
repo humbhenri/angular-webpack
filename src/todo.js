@@ -1,5 +1,4 @@
 const template = require('./todo.html');
-console.log(app);
 
 app.component('todo', {
     bindings: {

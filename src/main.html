@@ -1,4 +1,12 @@
 <h1 class="display-1 text-center">Todos</h1>
+<div
+    class="alert"
+    ng-class="$ctrl.msgService.messageType"
+    role="alert"
+    ng-if="$ctrl.msgService.message"
+>
+    {{ $ctrl.msgService.message }}
+</div>
 <div>
     <todo new-todo-cb="$ctrl.saveTodo(todo)"></todo>
 </div>
