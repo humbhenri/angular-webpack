@@ -5,9 +5,14 @@
                 type="checkbox"
                 class="custom-control-input"
                 id="customCheck{{$index}}"
+                ng-model="todo.done"
             />
-            <label class="custom-control-label" for="customCheck{{$index}}"
-                >{{ todo }}</label
+            <label
+                class="custom-control-label"
+                ng-class="{'text-muted': todo.done}"
+                ng-style="todo.done && {'text-decoration': 'line-through'}"
+                for="customCheck{{$index}}"
+                >{{ todo.text }}</label
             >
         </div>
     </li>
