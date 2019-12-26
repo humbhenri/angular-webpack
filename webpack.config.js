@@ -7,9 +7,8 @@ const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    devtool: 'inline-source-map',
     output: {
-        filename: 'main.js',
+        filename: 'main.[hash].js',
         path: path.resolve(__dirname, 'dist')
     },
     devServer: {
@@ -17,6 +16,22 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            ['@babel/preset-env', {
+                                debug: true,
+                                useBuiltIns: 'usage',
+                                corejs: 3,
+                            }]
+                        ]
+                    }
+                }
+            },
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
